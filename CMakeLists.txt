@@ -116,10 +116,18 @@ foreach(OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES})
       ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
 endforeach(OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES)
 
-# Third parties
-add_subdirectory(third_party/antlr4-cpp-runtime)
-include_directories(third_party/antlr4-cpp-runtime/src)
+option(REMATCH_USE_BUNDLED_DEPS "Build and use the bundled third-party dependencies" ON)
 
+if(NOT REMATCH_USE_BUNDLED_DEPS)
+    message(STATUS "Attempting to find a system-provided antlr4-runtime...")
+    find_package(antlr4-runtime REQUIRED)
+else()
+    message(STATUS "Using the bundled antlr4-cpp-runtime.")
+    add_subdirectory(third_party/antlr4-cpp-runtime)
+    include_directories(third_party/antlr4-cpp-runtime/src)
+endif()
+
+# Third parties
 include_directories(third_party/cli11)
 
 # Tracy will not be installed if profiling is disabled

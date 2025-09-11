@@ -3,6 +3,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <cstdint>
 
 #include "REmatch_export.hpp"
 

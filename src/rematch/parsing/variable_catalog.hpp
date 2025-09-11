@@ -10,6 +10,7 @@
 #include <unordered_set>
 #include <utility>
 #include <vector>
+#include <cstdint>
 
 namespace REmatch {
 inline namespace parsing {
