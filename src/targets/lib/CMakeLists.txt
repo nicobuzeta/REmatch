@@ -17,6 +17,8 @@ add_library(${PROJECT_NAME}::${LIBRARY_TARGET_NAME} ALIAS
 # ##############################################################################
 # Define target properties, flags and dependencies
 # ##############################################################################
+target_compile_features(${LIBRARY_TARGET_NAME} PUBLIC cxx_std_17)
+
 generate_export_header(${LIBRARY_TARGET_NAME} EXPORT_FILE_NAME
   ${CMAKE_CURRENT_SOURCE_DIR}/include/${LIBRARY_TARGET_NAME}/${LIBRARY_TARGET_NAME}_export.hpp
 )

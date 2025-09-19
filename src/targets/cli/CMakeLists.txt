@@ -12,6 +12,8 @@ add_executable(${CLI_TARGET_NAME} ${${CLI_TARGET_NAME}_SRC})
 # ##############################################################################
 # Define target properties, flags and dependencies
 # ##############################################################################
+target_compile_features(${CLI_TARGET_NAME} PUBLIC cxx_std_17)
+
 set_target_properties(${CLI_TARGET_NAME} PROPERTIES
     DEBUG_POSTFIX "-d"
     MSVC_RUNTIME_LIBRARY "${MSVC_RUNTIME_TYPE}"

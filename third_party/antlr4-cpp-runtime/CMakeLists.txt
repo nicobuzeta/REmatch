@@ -7,6 +7,8 @@ file(GLOB_RECURSE ANTLR4_HDR src/*.hpp)
 # Embed ANTLR4 as an object library to be used by other projects
 add_library(${ANTLR4_TARGET_NAME} OBJECT ${ANTLR4_SRC} ${ANTLR4_HDR})
 
+target_compile_features(${ANTLR4_TARGET_NAME} PUBLIC cxx_std_17)
+
 target_include_directories(${ANTLR4_TARGET_NAME} PRIVATE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
     $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/${CMAKE_INSTALL_INCLUDEDIR}>

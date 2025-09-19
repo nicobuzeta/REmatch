@@ -10,6 +10,8 @@ include(${PROJECT_SOURCE_DIR}/cmake/setup_pybind11.cmake)
 # Add python binding module
 pybind11_add_module(${PYTHON_TARGET_NAME} MODULE ${${PYTHON_TARGET_NAME}_SRC})
 
+target_compile_features(${PYTHON_TARGET_NAME} PUBLIC cxx_std_17)
+
 set_target_properties(${PYTHON_TARGET_NAME}
     PROPERTIES MSVC_RUNTIME_LIBRARY "${MSVC_RUNTIME_TYPE}")
 
