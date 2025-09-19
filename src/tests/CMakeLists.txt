@@ -7,8 +7,9 @@ if(BUILD_TESTING AND NOT SKBUILD AND NOT EMSCRIPTEN)
   file(GLOB_RECURSE TEST_SRC *.cpp)
   file(GLOB_RECURSE TEST_HDR *.hpp)
 
-  include_directories(.)
   add_executable(${TEST_BINARY} ${TEST_SRC} ${TEST_HDR} ${REMATCH_SRC} ${REMATCH_HDR})
+
+  target_include_directories(${TEST_BINARY} PRIVATE third_party/antlr4-cpp-runtime .)
 
   set_target_properties(${TEST_BINARY} PROPERTIES
     DEBUG_POSTFIX "-d" # For MSVC

@@ -120,7 +120,6 @@ if(NOT REMATCH_USE_BUNDLED_DEPS)
 else()
     message(STATUS "Using the bundled antlr4-cpp-runtime.")
     add_subdirectory(third_party/antlr4-cpp-runtime)
-    include_directories(third_party/antlr4-cpp-runtime/src)
 endif()
 
 # Third parties

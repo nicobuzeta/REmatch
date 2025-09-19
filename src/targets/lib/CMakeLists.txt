@@ -37,6 +37,7 @@ target_compile_definitions(${LIBRARY_TARGET_NAME}
                            PRIVATE ${COMPILER_DEFINITIONS})
 
 target_link_options(${LIBRARY_TARGET_NAME} PRIVATE ${LINKER_FLAGS})
+target_include_directories(${LIBRARY_TARGET_NAME} PRIVATE third_party/antlr4-cpp-runtime)
 
 target_include_directories(${LIBRARY_TARGET_NAME}
   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
