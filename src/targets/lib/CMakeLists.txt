@@ -37,11 +37,18 @@ target_compile_definitions(${LIBRARY_TARGET_NAME}
                            PRIVATE ${COMPILER_DEFINITIONS})
 
 target_link_options(${LIBRARY_TARGET_NAME} PRIVATE ${LINKER_FLAGS})
-target_include_directories(${LIBRARY_TARGET_NAME} PRIVATE third_party/antlr4-cpp-runtime)
+message(${CMAKE_CURRENT_SOURCE_DIR})
 
 target_include_directories(${LIBRARY_TARGET_NAME}
-  PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-         $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/${CMAKE_INSTALL_INCLUDEDIR}>)
+    PUBLIC
+        # Public headers for consumers of the library
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/${CMAKE_INSTALL_INCLUDEDIR}>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../rematch
+        third_party/antlr4-cpp-runtime
+)
 
 target_link_libraries(${LIBRARY_TARGET_NAME}
   PRIVATE antlr4_static

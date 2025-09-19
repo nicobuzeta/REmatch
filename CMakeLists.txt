@@ -131,7 +131,6 @@ include(${PROJECT_SOURCE_DIR}/cmake/setup_tracy.cmake)
 # Source code
 file(GLOB_RECURSE REMATCH_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/rematch/*.cpp)
 file(GLOB_RECURSE REMATCH_HDR ${CMAKE_CURRENT_SOURCE_DIR}/src/rematch/*.hpp)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/rematch)
 
 # Compile and install related commands.
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src)
